@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Redleaf Carriages | Two old railway carriages on a working farm, Fitzroy Falls</title>
+<meta name="description" content="Carriage 1238, a 1920s passenger car, and Carriage 343, an 1890 guards van, in the paddocks of Redleaf Farm in the Southern Highlands. A website idea made by Lamplit Studio for Redleaf Farm.">
+<meta property="og:title" content="Redleaf Carriages">
+<meta property="og:description" content="A website idea made by Lamplit Studio for Redleaf Farm carriages. Not their official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/redleafcarriages/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sparshsainied-prog.github.io/redleafcarriages/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d130d'/%3E%3Cpath d='M16 3 L18.2 9.5 L23 7 L21.6 12.6 L28 13 L23.4 17.2 L26 22 L19.8 20.6 L17 27 L16 21 L15 27 L12.2 20.6 L6 22 L8.6 17.2 L4 13 L10.4 12.6 L9 7 L13.8 9.5 Z' fill='%23b8213a'/%3E%3C/svg%3E">
+<link rel="preload" as="image" href="img/sign-2000.jpg" media="(min-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/sign-p.jpg" media="(max-width: 699px)" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<style>
+/* From Redleaf's own logo and the carriages: varnished timber in shadow, the painted ceilings and
+   pale scribbly gum bark, the red of the Redleaf leaf, and the grey paint on both carriage bodies.
+   Cinzel is the nearest free face to the Roman capitals in their logo (and the gilt railway lettering);
+   Alegreya Sans is a warm reading face. See ../brand.md. */
+:root{
+  --timber:#1d130d;      /* dark: varnished timber in shadow */
+  --timber-2:#2b1d14;
+  --ceiling:#ebe9e4;     /* light: painted ceilings, scribbly gum bark; grey, not cream */
+  --ceiling-2:#dedbd4;
+  --leaf:#b8213a;        /* accent: the Redleaf leaf, used sparingly */
+  --leaf-deep:#931a2e;
+  --carriage:#5d625c;    /* the grey on both carriage bodies */
+  --ink:#1d130d;
+  --ink-soft:#5b4c42;
+  --on-dark:#efe9e1;
+  --on-dark-soft:#c9bcb0;
+  --line:#cfcac1;
+  --display:"Cinzel","Trajan Pro",Georgia,serif;
+  --text:"Alegreya Sans","Gill Sans","Segoe UI",sans-serif;
+  --gut:max(20px, env(safe-area-inset-left, 0px));
+  --gut-r:max(20px, env(safe-area-inset-right, 0px));
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ceiling);color:var(--ink);font-family:var(--text);font-size:18px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--leaf-deep)}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+.dark :focus-visible,.stage :focus-visible,.top :focus-visible,footer :focus-visible{outline-color:#f0c9a0}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:12px;top:12px;z-index:60;background:var(--ceiling);padding:8px 12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.strip{background:#000;color:var(--on-dark);font-size:15px;text-align:center;line-height:1.4;
+  padding:8px var(--gut-r) 8px var(--gut);padding-top:calc(8px + env(safe-area-inset-top,0px))}
+
+/* header: the leaf and the wordmark, as in their logo */
+.top{position:absolute;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:16px var(--gut-r) 0 var(--gut)}
+.mark{display:flex;align-items:flex-start;gap:6px;text-decoration:none;color:var(--on-dark);text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.mark .w{display:grid;line-height:1}
+.mark .a{font-family:var(--display);font-weight:600;font-size:24px;letter-spacing:.06em}
+.mark .b{font-family:var(--display);font-weight:600;font-size:10px;letter-spacing:.34em;color:#f3b9c0;margin-top:5px;text-align:right}
+.leafmark{width:22px;height:22px;flex:0 0 auto;margin-top:-6px}
+.top nav{display:flex;gap:22px;align-items:center;font-size:16px}
+.top nav a{color:var(--on-dark);text-decoration:none;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.top nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:2px;
+  font-family:var(--text);font-weight:700;font-size:17px;text-decoration:none;border:0;cursor:pointer;
+  background:var(--leaf);color:#fff}
+.btn:hover{background:var(--leaf-deep)}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.line:hover{background:rgba(29,19,13,.06)}
+.dark .btn.line,.stage .btn.line,.close .btn.line{color:var(--on-dark);box-shadow:inset 0 0 0 1.5px rgba(239,233,225,.85)}
+.top .btn{text-shadow:none}
+.top .btn,.mark .a{white-space:nowrap}
+@media (max-width:900px){.top nav a:not(.btn){display:none}}
+@media (max-width:360px){.mark .a{font-size:20px}.top .btn{padding:0 14px;font-size:16px}}
+
+/* ---------- Down the side aisle: from the painted class sign, along the corridor, to the king room's sliding door ---------- */
+.arrive{position:relative;height:340vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--timber)}
+.plate{position:absolute;inset:0;will-change:transform,opacity}
+.plate img{width:100%;height:100%;object-fit:cover}
+.plate.sign{transform-origin:30% 72%}
+.plate.sign img{object-position:30% 50%}
+.plate.hall{opacity:0;transform-origin:50% 48%}
+.plate.king{opacity:0}
+.plate.king img{object-position:50% 55%}
+.door{position:absolute;inset:0;opacity:0;will-change:transform,opacity;box-shadow:18px 0 40px rgba(0,0,0,.55)}
+.door img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 55%, rgba(0,0,0,.5) 100%)}
+.copy-a{position:absolute;z-index:6;right:var(--gut-r);bottom:clamp(28px,8vh,80px);width:min(560px, calc(100% - 40px));
+  background:rgba(29,19,13,.84);color:var(--on-dark);padding:clamp(20px,2.4vw,30px);border-radius:2px;will-change:transform,opacity}
+.copy-a .where{font-size:15px;color:var(--on-dark-soft)}
+.copy-a h1{font-size:clamp(30px,3.4vw,46px);margin-top:8px}
+.copy-a p.l{font-size:18px;margin-top:12px}
+.copy-a .act{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.copy-b{pointer-events:none;position:absolute;z-index:6;left:var(--gut);bottom:clamp(28px,9vh,90px);width:min(500px, calc(100% - 40px));opacity:0;color:var(--on-dark);will-change:transform,opacity}
+.copy-b .panel{background:rgba(29,19,13,.84);padding:clamp(20px,2.4vw,28px);border-radius:2px}
+.copy-b h2{font-size:clamp(24px,2.6vw,34px)}
+.copy-b p{margin-top:10px}
+@media (max-width:699px){
+  .arrive{height:280vh}
+  .plate.sign{transform-origin:50% 72%}
+  .copy-a{left:var(--gut);width:auto;bottom:calc(64px + env(safe-area-inset-bottom,0px));padding:18px}
+  .copy-a .where{display:none}
+  .copy-a h1{font-size:clamp(26px,7.4vw,32px)}
+  .copy-a p.l{font-size:16px}
+  .copy-a .act{display:none}
+  .copy-b{right:var(--gut-r);width:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-height:620px) and (min-width:700px){.copy-a p.l{display:none}}
+@media (max-height:460px) and (min-width:700px){.copy-a{bottom:12px;padding:14px 18px}.copy-a .where,.copy-a .act{display:none}.copy-a h1{font-size:22px;margin:0}.copy-b .panel p{display:none}}
+
+/* ---------- Sections ---------- */
+.wrap{padding-left:var(--gut);padding-right:var(--gut-r)}
+.inner{max-width:1240px;margin:0 auto}
+section{scroll-margin-top:16px}
+.dark{background:var(--timber);color:var(--on-dark)}
+.dark a{color:#f3c3c9}
+.lede{font-size:clamp(19px,1.6vw,21px);max-width:36em}
+.quote{font-size:clamp(21px,1.9vw,25px);font-style:italic;line-height:1.4}
+.who{font-size:15px;color:var(--ink-soft);margin-top:8px}
+.dark .who,.dark .cap{color:var(--on-dark-soft)}
+.cap{font-size:15px;color:var(--ink-soft);margin-top:8px}
+figure{margin:0}
+.ph img{width:100%;object-fit:cover;border-radius:2px}
+.num{font-family:var(--display);font-weight:700;color:var(--leaf);letter-spacing:.04em}
+.dark .num{color:#e05a6e}
+
+/* the two carriages */
+.pair{padding-block:clamp(72px,10vw,130px)}
+.pair h2{font-size:clamp(32px,4vw,52px);max-width:16em}
+.pair .lede{margin-top:16px}
+.pair-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);margin-top:clamp(32px,4vw,52px)}
+.pair-grid a{text-decoration:none;color:inherit;display:block}
+.pair-grid img{aspect-ratio:3/2}
+.pair-grid h3{font-size:clamp(24px,2.4vw,32px);margin-top:16px}
+.pair-grid h3 .num{margin-right:10px}
+.pair-grid p{margin-top:6px;font-size:18px}
+@media (max-width:760px){.pair-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* one carriage */
+.car{padding-block:clamp(72px,10vw,130px)}
+.car-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:start}
+.car-head .tall img{aspect-ratio:4/5}
+.car h2{font-size:clamp(34px,4.4vw,60px)}
+.car h2 .num{display:block;font-size:.62em;letter-spacing:.12em}
+.car .lede{margin-top:18px}
+dl.facts{margin:26px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:22px;font-size:17px;line-height:1.5}
+dl.facts dt{font-family:var(--display);font-weight:600;font-size:16px;padding:12px 0;border-top:1px solid var(--line);white-space:nowrap}
+dl.facts dd{margin:0;padding:12px 0;border-top:1px solid var(--line)}
+.dark dl.facts dt,.dark dl.facts dd{border-color:#4a382b}
+.mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px;margin-top:clamp(28px,4vw,48px)}
+.mosaic figure{grid-column:span 4}
+.mosaic figure.w{grid-column:span 8}
+.mosaic figure.h{grid-column:span 4}
+.mosaic img{aspect-ratio:4/5}
+.mosaic figure.w img{aspect-ratio:16/10}
+.mosaic .row{display:contents}
+@media (max-width:760px){
+  .car-head{grid-template-columns:minmax(0,1fr)}
+  .car-head .tall{order:-1}
+  .car-head .tall img{aspect-ratio:4/5}
+  .mosaic{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .mosaic figure,.mosaic figure.w,.mosaic figure.h{grid-column:span 1}
+  .mosaic figure.w{grid-column:span 2}
+  .mosaic figure.w img{aspect-ratio:3/2}
+  .mosaic figure.last-phone{order:10}
+}
+
+/* the farm */
+.band{background:var(--timber)}
+.band img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.band figcaption{color:var(--on-dark-soft);font-size:15px;padding-block:10px 12px}
+@media (max-width:699px){.band img{aspect-ratio:4/3}}
+.farm{padding-block:clamp(72px,10vw,130px)}
+.farm .inner{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:start}
+.farm h2{font-size:clamp(34px,4.4vw,60px)}
+.farm .lede{margin-top:18px}
+.farm ul{margin:22px 0 0;padding:0;list-style:none}
+.farm li{padding:12px 0;border-top:1px solid var(--line);font-size:17px}
+.farm-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.farm-photos img{aspect-ratio:4/5}
+.farm-photos figure.w{grid-column:span 2}
+.farm-photos figure.w img{aspect-ratio:3/2}
+@media (max-width:860px){.farm .inner{grid-template-columns:minmax(0,1fr)}}
+
+/* guests */
+.guests{padding-block:clamp(72px,10vw,130px)}
+.guests .inner{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:start}
+.scores{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
+.scores div{display:grid}
+.scores b{font-family:var(--display);font-size:clamp(56px,7vw,92px);line-height:1;color:#e05a6e;font-variant-numeric:tabular-nums}
+.scores span{font-size:16px;color:var(--on-dark-soft)}
+.guests ul{list-style:none;margin:clamp(30px,4vw,48px) 0 0;padding:0;display:grid;gap:24px}
+.guests li{border-top:1px solid #4a382b;padding-top:16px}
+.guests .ph img{aspect-ratio:4/5}
+@media (max-width:860px){.guests .inner{grid-template-columns:minmax(0,1fr)}}
+
+/* book */
+.book{padding-block:clamp(72px,10vw,130px)}
+.book h2{font-size:clamp(34px,4.4vw,60px)}
+.book .lede{margin-top:16px}
+.book-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(28px,4vw,48px)}
+.ticket{border-top:3px solid var(--leaf);padding-top:18px}
+.ticket img{aspect-ratio:3/2;margin-bottom:16px}
+.ticket h3{font-size:clamp(22px,2.2vw,28px)}
+.ticket p{margin-top:8px;font-size:17px}
+.ticket .act{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.direct{margin-top:clamp(28px,4vw,44px);background:var(--ceiling-2);padding:18px 20px;border-radius:2px;font-size:17px;max-width:46em}
+@media (max-width:760px){.book-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* close: sunset on 343's back platform */
+.close{position:relative;color:var(--on-dark);background:var(--timber);overflow:hidden}
+.close > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.close .veil{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.55))}
+.close .body{position:relative;min-height:min(88vh,780px);display:grid;align-content:end;padding:clamp(72px,10vw,120px) var(--gut-r) clamp(56px,8vw,96px) var(--gut)}
+.close .mk{display:flex;align-items:flex-start;gap:10px}
+.close .mk .leafmark{width:46px;height:46px;margin-top:-10px}
+.close .n{font-family:var(--display);font-weight:600;font-size:clamp(44px,8vw,96px);letter-spacing:.05em;line-height:1}
+.close .s{font-family:var(--display);font-weight:600;font-size:clamp(13px,1.6vw,18px);letter-spacing:.4em;color:#f3b9c0;margin-top:8px}
+.close p.l{margin-top:16px;font-size:19px;max-width:30em}
+.close .act{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+footer{background:#000;color:var(--on-dark-soft);font-size:15px;padding-block:26px calc(26px + env(safe-area-inset-bottom,0px))}
+footer a{color:#fff}
+footer .inner{display:grid;gap:6px}
+@media (max-width:900px){footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
+
+.thumbbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:10px;
+  padding:10px var(--gut-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gut);
+  background:rgba(235,233,228,.97);border-top:1px solid var(--line);transform:translateY(110%);visibility:hidden;transition:transform .25s ease-out,visibility 0s .25s}
+.thumbbar.on{transform:none;visibility:visible;transition:transform .25s ease-out}
+.thumbbar .btn{flex:1;min-height:50px}
+.thumbbar .btn.line{flex:0 0 auto;padding:0 18px}
+@media (max-width:900px){.thumbbar{display:flex}}
+
+@media (prefers-reduced-motion: reduce){
+  .arrive{height:auto}
+  .stage{position:relative;height:auto;overflow:visible;display:flex;flex-direction:column;background:var(--timber)}
+  .plate,.door{position:relative;inset:auto;transform:none !important;opacity:1 !important}
+  .plate.sign{order:1;height:min(100svh,860px)}
+  .plate.sign img{height:100%}
+  .shade{height:min(100svh,860px)}
+  .copy-a{order:2;position:relative;left:auto;right:auto;bottom:auto;width:auto;border-radius:0;background:var(--timber);transform:none !important;opacity:1 !important}
+  .copy-a .act{display:flex}
+  .plate.hall{display:none}
+  .door{display:none !important}
+  .plate.king{order:3}
+  .plate.king img{height:auto;aspect-ratio:16/10}
+  .copy-b{order:4;position:relative;opacity:1 !important;transform:none !important;left:auto !important;right:auto !important;bottom:auto;width:100% !important;max-width:none}
+  .copy-b .panel{border-radius:0;background:var(--timber);padding:22px var(--gut-r) 28px var(--gut)}
+  .thumbbar,.thumbbar.on{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leaf" viewBox="0 0 32 32"><path d="M16 2.5 L18.3 9.4 L23.4 6.6 L21.9 12.6 L28.6 13 L23.8 17.4 L26.6 22.4 L20 21 L17.1 27.4 L16.4 22 L16.6 30 L15.4 30 L15.6 22 L14.9 27.4 L12 21 L5.4 22.4 L8.2 17.4 L3.4 13 L10.1 12.6 L8.6 6.6 L13.7 9.4 Z" fill="#b8213a"/></symbol>
+</svg>
+<a class="skip" href="#book">Skip to booking</a>
+<p class="strip">A website idea made by Lamplit Studio for Redleaf Farm carriages. Not their official site.</p>
+
+<header class="top">
+  <a class="mark" href="#arrive" aria-label="Redleaf Carriages, back to top"><span class="w"><span class="a">REDLEAF</span><span class="b">CARRIAGES</span></span><svg class="leafmark" aria-hidden="true"><use href="#leaf"/></svg></a>
+  <nav aria-label="Main">
+    <a href="#c1238">Carriage 1238</a>
+    <a href="#c343">Carriage 343</a>
+    <a href="#farm">The farm</a>
+    <a class="btn" href="#book">Check dates</a>
+  </nav>
+</header>
+
+<main>
+<section class="arrive" id="arrive" aria-label="Inside Carriage 1238">
+  <div class="stage">
+    <div class="plate king" aria-hidden="true">
+      <picture><source media="(min-width:700px)" srcset="img/king-2000.jpg"><img src="img/king-p.jpg" alt="" width="900" height="1600"></picture>
+    </div>
+    <div class="plate hall" aria-hidden="true">
+      <picture><source media="(min-width:700px)" srcset="img/hall-2000.jpg"><img src="img/hall-p.jpg" alt="" width="900" height="1600"></picture>
+    </div>
+    <div class="door" aria-hidden="true">
+      <picture><source media="(min-width:700px)" srcset="img/door-wide.jpg"><img src="img/door-p.jpg" alt="" width="700" height="2167"></picture>
+    </div>
+    <div class="plate sign">
+      <picture><source media="(min-width:700px)" srcset="img/sign-2000.jpg"><img src="img/sign-p.jpg" alt="Old painted lettering on the carriage's timber wall, SEATS 1 TO 24, 2ND, beside the side corridor" width="900" height="1600" fetchpriority="high"></picture>
+    </div>
+    <div class="shade" aria-hidden="true"></div>
+    <div class="copy-a" id="copyA">
+      <p class="where">Redleaf Farm, Fitzroy Falls, Southern Highlands</p>
+      <h1><span class="sr">Redleaf Carriages. </span>Sleep in an old railway carriage on a working farm.</h1>
+      <p class="l">Carriage 1238 is a 1920s passenger car. Carriage 343 is a guards van built in 1890. Both sit in the paddocks, just under two hours from Sydney.</p>
+      <div class="act"><a class="btn" href="#book">Check dates</a><a class="btn line" href="#carriages">See both carriages</a></div>
+    </div>
+    <div class="copy-b" id="copyB">
+      <div class="panel">
+        <h2>The king room</h2>
+        <p>In 1238 the king bed has a compartment to itself, with a chandelier and the original sliding doors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pair wrap" id="carriages">
+  <div class="inner">
+    <h2>Two carriages, two paddocks</h2>
+    <p class="lede">Katrina and Sam run Redleaf with their four kids. They grow free range pigs, chickens, sheep and beef cattle, and each carriage is fully self contained, with all the linen provided.</p>
+    <div class="pair-grid">
+      <a href="#c1238"><figure class="ph"><img src="img/c1238-800.jpg" srcset="img/c1238-800.jpg 800w, img/c1238.jpg 1600w" sizes="(max-width:760px) 100vw, 50vw" alt="Carriage 1238, a long grey passenger carriage under trees, with a peacock on the grass beside it" width="800" height="533" loading="lazy"></figure>
+        <h3><span class="num">1238</span>The family one</h3><p>A 1920s passenger car close to the house. King room, bunk room, sitting room, kitchenette and a deck over the paddocks. Sleeps 5.</p></a>
+      <a href="#c343"><figure class="ph"><img src="img/c343-800.jpg" srcset="img/c343-800.jpg 800w, img/c343.jpg 1600w" sizes="(max-width:760px) 100vw, 50vw" alt="Carriage 343, a grey guards van on its old wheels in long grass, gum trees behind" width="800" height="533" loading="lazy"></figure>
+        <h3><span class="num">343</span>The secluded one</h3><p>An 1890 guards van on its original wheels, alone in a 20 acre paddock. Solar powered, with a zinc bath under the scribbly gums. Sleeps 4.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="car wrap dark" id="c1238">
+  <div class="inner">
+    <div class="car-head">
+      <div>
+        <h2><span class="num">Carriage 1238</span>A 1920s passenger car</h2>
+        <p class="lede">It keeps its old timber inside, complete with almost 100 years of graffiti. It's built on a side-aisle plan: three compartments at one end, an open living space and kitchenette at the other, and the original toilet compartments at either end, one now a shower.</p>
+        <dl class="facts">
+          <dt>Sleeps</dt><dd>Up to 5. King room, and a bunk room with up to three single bunks ("kids love it").</dd>
+          <dt>Living</dt><dd>Sitting room, dining table and a kitchenette with an oven, stove and mini fridge.</dd>
+          <dt>Outside</dt><dd>A deck over the paddocks, with highland cows, sheep and chickens to watch, and a barbecue.</dd>
+          <dt>Wake-up</dt><dd>The roosters.</dd>
+          <dt>Good to know</dt><dd>You drive through a paddock and a few gates to get there. No TV; wifi is free but a digital detox is encouraged. Pack warm clothes, it can be cold any time of year.</dd>
+        </dl>
+      </div>
+      <figure class="ph tall"><img src="img/reader-800.jpg" srcset="img/reader-800.jpg 800w, img/reader.jpg 1600w" sizes="(max-width:760px) 100vw, 55vw" alt="A guest reading in one of 1238's timber compartments, under a small chandelier" width="800" height="1200" loading="lazy"></figure>
+    </div>
+    <div class="mosaic">
+      <figure class="w ph"><img src="img/kitchen1238-800.jpg" srcset="img/kitchen1238-800.jpg 800w, img/kitchen1238.jpg 1200w" sizes="(max-width:760px) 100vw, 66vw" alt="1238's kitchenette: open timber shelves with jars and copper pots, and the paddock through the windows" width="800" height="533" loading="lazy"><figcaption class="cap">The kitchenette</figcaption></figure>
+      <figure class="h ph"><img src="img/bunks-800.jpg" srcset="img/bunks-800.jpg 800w, img/bunks.jpg 1200w" sizes="(max-width:760px) 50vw, 33vw" alt="The bunk room, with patterned quilts in a narrow timber compartment" width="800" height="1200" loading="lazy"><figcaption class="cap">The bunk room</figcaption></figure>
+      <figure class="ph"><img src="img/dining-800.jpg" srcset="img/dining-800.jpg 800w, img/dining.jpg 1200w" sizes="(max-width:760px) 50vw, 33vw" alt="The dining end of 1238, with a round table and timber chairs" width="800" height="1200" loading="lazy"><figcaption class="cap">The dining end</figcaption></figure>
+      <figure class="w ph"><img src="img/deck-800.jpg" srcset="img/deck-800.jpg 800w, img/deck.jpg 1600w" sizes="(max-width:760px) 100vw, 66vw" alt="1238's deck with a barbecue, the grey carriage behind it and sun through the trees" width="800" height="533" loading="lazy"><figcaption class="cap">The deck</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="car wrap" id="c343">
+  <div class="inner">
+    <div class="car-head">
+      <figure class="ph tall"><img src="img/zinc-800.jpg" srcset="img/zinc-800.jpg 800w, img/zinc.jpg 1600w" sizes="(max-width:760px) 100vw, 42vw" alt="The French zinc bath on a small timber deck under tall scribbly gums, with Carriage 343 in the paddock behind" width="800" height="1200" loading="lazy"></figure>
+      <div>
+        <h2><span class="num">Carriage 343</span>An 1890 guards van</h2>
+        <p class="lede">Modified in 1930 with a freight room, guards van and passenger seating, and still on its original wheels. It sits in its own 20 acre paddock, rural views on one side, bush and scribbly gums on the other.</p>
+        <dl class="facts">
+          <dt>Sleeps</dt><dd>Up to 4. The old freight van is the queen bedroom, with antiqued mirror walls and Juliet balconies through the parcel doors, plus two single bunks.</dd>
+          <dt>The bath</dt><dd>A French zinc bath outside, with a sunset bush view under the gums.</dd>
+          <dt>Warmth</dt><dd>The original guard's fuel stove makes a small fireplace. Sheepskin rugs and warm doonas.</dd>
+          <dt>Kitchen</dt><dd>A 1910 Early Kooka gas stove and oven, a small solar fridge, and a fire pit with a barbecue plate outside.</dd>
+          <dt>Off grid</dt><dd>Solar power and creek water, with drinking water supplied. No TV, hairdryer or microwave.</dd>
+          <dt>On arrival</dt><dd>Ask Katrina to arrange a grazing box and you won't have to leave.</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="mosaic">
+      <figure class="h ph"><img src="img/bed343-800.jpg" srcset="img/bed343-800.jpg 800w, img/bed343.jpg 1600w" sizes="(max-width:760px) 50vw, 33vw" alt="343's bedroom: a chandelier, a draped canopy and a dark quilted bed" width="800" height="1200" loading="lazy"><figcaption class="cap">The queen room</figcaption></figure>
+      <figure class="ph"><img src="img/booth-800.jpg" srcset="img/booth-800.jpg 800w, img/booth.jpg 1600w" sizes="(max-width:760px) 50vw, 33vw" alt="The dining booth: old railway seats covered in fallow deer hide either side of a timber table" width="800" height="1200" loading="lazy"><figcaption class="cap">Railway seats in fallow deer from the farm</figcaption></figure>
+      <figure class="ph"><img src="img/kitchen343-800.jpg" srcset="img/kitchen343-800.jpg 800w, img/kitchen343.jpg 1200w" sizes="(max-width:760px) 50vw, 33vw" alt="343's kitchen end, with the small cream Early Kooka stove" width="800" height="1200" loading="lazy"><figcaption class="cap">The Early Kooka</figcaption></figure>
+      <figure class="w ph last-phone"><img src="img/lounge343-800.jpg" srcset="img/lounge343-800.jpg 800w, img/lounge343.jpg 1600w" sizes="(max-width:760px) 100vw, 66vw" alt="Inside 343: a guest reading on a leather couch beside the windows, timber floor and walls" width="800" height="533" loading="lazy"><figcaption class="cap">Inside 343</figcaption></figure>
+      <figure class="h ph"><img src="img/glass-800.jpg" srcset="img/glass-800.jpg 800w, img/glass.jpg 1600w" sizes="(max-width:760px) 50vw, 33vw" alt="Glass etched in script with Redleaf Carriage 343, above a timber panel with two hooks" width="800" height="1200" loading="lazy"><figcaption class="cap">The etched glass</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/cows-800.jpg" srcset="img/cows-800.jpg 800w, img/cows.jpg 1600w" sizes="100vw" alt="Highland cows and calves grazing in a paddock in low evening sun" width="800" height="533" loading="lazy">
+  <figcaption class="wrap">Highland cows in the paddocks at Redleaf.</figcaption>
+</figure>
+
+<section class="farm wrap" id="farm">
+  <div class="inner">
+    <div>
+      <h2>A working farm</h2>
+      <p class="lede">From 1238's deck you can watch highland cows, sheep and chickens. Katrina and Sam raise their animals ethically and sustainably, and sell the meat as Redleaf Pork, Lamb and Beef.</p>
+      <ul>
+        <li>Highland cows, sheep, goats, chickens and the odd peacock.</li>
+        <li>State forest next door, with mountain bike and walking tracks at the doorstep.</li>
+        <li>Just under two hours from Sydney.</li>
+        <li>It's a working farm: please close the gates behind you.</li>
+      </ul>
+    </div>
+    <div class="farm-photos">
+      <figure class="w ph"><img src="img/feed-800.jpg" srcset="img/feed-800.jpg 800w, img/feed.jpg 1600w" sizes="(max-width:860px) 100vw, 55vw" alt="Two white Highland cows and a brown calf in green grass" width="800" height="533" loading="lazy"></figure>
+      <figure class="ph"><img src="img/calf-800.jpg" srcset="img/calf-800.jpg 800w, img/calf.jpg 1600w" sizes="(max-width:860px) 50vw, 28vw" alt="A shaggy Highland calf in the paddock with the sun behind it" width="800" height="1200" loading="lazy"></figure>
+      <figure class="ph"><img src="img/peacock-800.jpg" srcset="img/peacock-800.jpg 800w, img/peacock.jpg 1200w" sizes="(max-width:860px) 50vw, 28vw" alt="A blue peacock perched in a tree" width="800" height="1200" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="guests wrap dark" id="guests">
+  <div class="inner">
+    <div>
+      <div class="scores">
+        <div><b>4.92</b><span>Carriage 1238, 241 reviews on Airbnb</span></div>
+        <div><b>4.91</b><span>Carriage 343, 116 reviews on Airbnb</span></div>
+      </div>
+      <ul>
+        <li><p class="quote">"Our kids will be talking about this place for years and we're already being asked when we can go back. This is the ultimate farm stay!"</p><p class="who">David, Carriage 1238</p></li>
+        <li><p class="quote">"A fabulous and unique place to stay in a beautiful setting. Katrina and Sam were wonderful hosts."</p><p class="who">Alison, Carriage 343</p></li>
+        <li><p class="quote">"Perfect for a romantic getaway or for a family retreat from tv and gadgets."</p><p class="who">Robert, Carriage 343</p></li>
+        <li><p class="quote">"The carriage itself, meanwhile, is a stunning restoration and incredibly cozy."</p><p class="who">Greg, Carriage 1238</p></li>
+      </ul>
+      <p class="cap" style="margin-top:22px">Katrina is an Airbnb Superhost. Guests' words are from Redleaf's own site.</p>
+    </div>
+    <figure class="ph"><img src="img/wine-800.jpg" srcset="img/wine-800.jpg 800w, img/wine.jpg 1200w" sizes="(max-width:860px) 100vw, 40vw" alt="Two glasses of wine raised over a grazing board by a carriage window, gum trees outside" width="800" height="1200" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="book wrap" id="book">
+  <div class="inner">
+    <h2>Book a carriage</h2>
+    <p class="lede">Both are $380 a night plus a $60 cleaning and linen fee per booking, with a two night minimum. Pets aren't allowed; children are welcome.</p>
+    <div class="book-grid">
+      <div class="ticket">
+        <figure class="ph"><img src="img/sitting-800.jpg" srcset="img/sitting-800.jpg 800w, img/sitting.jpg 1200w" sizes="(max-width:760px) 100vw, 48vw" alt="The sitting room in 1238: a window seat with cushions and a fur throw" width="800" height="533" loading="lazy"></figure>
+        <h3><span class="num">1238</span> Ideal family getaway</h3>
+        <p>Up to 5 guests. King room and bunk room.</p>
+        <div class="act"><a class="btn" href="https://www.airbnb.com.au/rooms/12473953" rel="noopener">Check dates for 1238</a></div>
+      </div>
+      <div class="ticket">
+        <figure class="ph"><img src="img/zinc2-800.jpg" srcset="img/zinc2-800.jpg 800w, img/zinc2.jpg 1600w" sizes="(max-width:760px) 100vw, 48vw" alt="A guest by the zinc bath under the scribbly gums" width="800" height="1200" style="aspect-ratio:3/2;object-position:50% 60%" loading="lazy"></figure>
+        <h3><span class="num">343</span> Secluded, off grid</h3>
+        <p>Up to 4 guests. Queen room and two bunks.</p>
+        <div class="act"><a class="btn" href="https://www.airbnb.com.au/rooms/21459520" rel="noopener">Check dates for 343</a></div>
+      </div>
+    </div>
+    <p class="direct">Questions, or booking without Airbnb: email <a href="mailto:katrina@redleaf-farm.com">katrina@redleaf-farm.com</a> or ring <a href="tel:+61411763373">0411 763 373</a>.</p>
+  </div>
+</section>
+
+<section class="close" aria-label="Book a Redleaf carriage">
+  <img src="img/sunset-800.jpg" srcset="img/sunset-800.jpg 800w, img/sunset.jpg 1600w" sizes="100vw" alt="Carriage 343's back platform at sunset, the sun low through the gums" width="800" height="1200" loading="lazy">
+  <div class="veil" aria-hidden="true"></div>
+  <div class="body">
+    <div class="mk"><div><p class="n">REDLEAF</p><p class="s">CARRIAGES</p></div><svg class="leafmark" aria-hidden="true"><use href="#leaf"/></svg></div>
+    <p class="l">Two old carriages in the paddocks at Fitzroy Falls.</p>
+    <div class="act">
+      <a class="btn" href="https://www.airbnb.com.au/rooms/12473953" rel="noopener">Carriage 1238</a>
+      <a class="btn" href="https://www.airbnb.com.au/rooms/21459520" rel="noopener">Carriage 343</a>
+      <a class="btn line" href="tel:+61411763373">Call</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="inner">
+    <p>A preview made by Lamplit Studio for Redleaf Farm carriages. Not affiliated, not live.</p>
+    <p>Photos and words are from Redleaf's own site and its Airbnb listings. Instagram: <a href="https://www.instagram.com/redleaffarm/" rel="noopener">@redleaffarm</a></p>
+  </div>
+</footer>
+
+<div class="thumbbar" id="thumbbar">
+  <a class="btn" href="#book">Check dates</a>
+  <a class="btn line" href="tel:+61411763373">Call</a>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var arrive = document.getElementById('arrive');
+  var sign = arrive.querySelector('.plate.sign'), hall = arrive.querySelector('.plate.hall');
+  var king = arrive.querySelector('.plate.king'), door = arrive.querySelector('.door');
+  var copyA = document.getElementById('copyA'), copyB = document.getElementById('copyB');
+  var bar = document.getElementById('thumbbar'), book = document.getElementById('book');
+  var ticking = false;
+  function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function band(p, a, b){ return clamp((p - a) / (b - a)); }
+  function ease(t){ return t * t * (3 - 2 * t); }
+
+  function frame(){
+    ticking = false;
+    var vh = window.innerHeight;
+    var r = arrive.getBoundingClientRect();
+    var total = Math.max(1, arrive.offsetHeight - vh);
+    var p = clamp(-r.top / total);
+    if (!reduce.matches){
+      // 1. the painted class sign: close up, then the camera eases back to show the corridor beside it
+      var back = ease(band(p, 0, 0.26));
+      var lift = vh > window.innerWidth ? (1 - back) * -16 : 0;
+      sign.style.transform = 'translate3d(0,' + lift.toFixed(2) + '%,0) scale(' + (2.1 - back * 1.1).toFixed(3) + ')';
+      // 2. into the corridor: it takes over and the camera walks down it
+      var into = ease(band(p, 0.24, 0.4));
+      sign.style.opacity = (1 - into).toFixed(3);
+      hall.style.opacity = (into * (1 - band(p, 0.6, 0.62))).toFixed(3);
+      var walk = ease(band(p, 0.26, 0.6));
+      hall.style.transform = 'scale(' + (1 + walk * 0.75).toFixed(3) + ')';
+      // 3. a compartment door comes up close, then slides open on the king room
+      var arriveDoor = ease(band(p, 0.5, 0.6));
+      var open = ease(band(p, 0.62, 0.84));
+      door.style.opacity = arriveDoor.toFixed(3);
+      door.style.transform = 'translate3d(' + (-open * 104).toFixed(2) + '%,0,0) scale(' + (1.12 - arriveDoor * 0.12).toFixed(3) + ')';
+      king.style.opacity = band(p, 0.58, 0.62).toFixed(3);
+      king.style.transform = 'scale(' + (1.1 - open * 0.1).toFixed(3) + ')';
+      var a = band(p, 0.08, 0.24);
+      copyA.style.opacity = (1 - a).toFixed(3);
+      copyA.style.transform = 'translate3d(0,' + (a * 30).toFixed(1) + 'px,0)';
+      copyA.inert = a > 0.9;
+      var b = ease(band(p, 0.8, 0.92));
+      copyB.style.opacity = b.toFixed(3);
+      copyB.style.transform = 'translate3d(0,' + ((1 - b) * 24).toFixed(1) + 'px,0)';
+    } else { copyA.inert = false; }
+    var br = book.getBoundingClientRect();
+    bar.classList.toggle('on', window.scrollY > vh * 0.6 && !(br.top < vh && br.bottom > 0));
+  }
+  function req(){ if (!ticking){ ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', req, {passive:true});
+  window.addEventListener('resize', req);
+  if (reduce.addEventListener) reduce.addEventListener('change', req);
+  frame();
+})();
+</script>
+</body>
+</html>
